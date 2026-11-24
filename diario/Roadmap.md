@@ -13,7 +13,7 @@ Leyenda: `[x]` hecho · `[ ]` pendiente · `[/]` empezado · `[-]` descartado
 - [x] Atajos `++` (forzar) y `!` (saltar); ignora preguntas, respuestas cortas y slash commands
 - [x] Instalar el hook global en `~/.claude/settings.json`
 - [ ] David lo prueba en uso real (reiniciar Claude Code o abrir `/hooks`)
-- [ ] Crear repo público `davidodo123/prompter` y subirlo
+- [x] Crear repo público `davidodo123/prompter-` y subirlo
 
 ## Fase 2 · Importante
 - [ ] Ajustar la detección con lo que falle en uso real (falsos positivos/negativos)

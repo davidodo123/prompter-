@@ -5,7 +5,7 @@ tags: [inicio]
 
 Hook de Claude Code que convierte peticiones cortas o vagas ("cambia el diseño") en un prompt bien desarrollado antes de ejecutarlas. Para David, en todos sus proyectos.
 
-- Repo: github.com/davidodo123/prompter (pendiente de crear)
+- Repo: github.com/davidodo123/prompter-
 - Código: `hook/ingeniero-prompt.js`
 - Instalado en: `~/.claude/settings.json` → `hooks.UserPromptSubmit`
 

@@ -42,7 +42,9 @@ function normalizar(t) {
 function tieneVerbo(texto) {
   const palabras = normalizar(texto).split(/[^a-zñ]+/).filter(Boolean);
   const raices = VERBOS.map(normalizar);
-  return palabras.some((p) => raices.some((r) => p.startsWith(r)));
+  // Participios ("creado", "cambiado", "hecho") cuentan lo ya hecho: no son encargos.
+  const participio = (p) => /(ad|id)[oa]s?$/.test(p) || p === 'hecho';
+  return palabras.some((p) => !participio(p) && raices.some((r) => p.startsWith(r)));
 }
 
 function decidir(prompt) {
@@ -52,6 +54,7 @@ function decidir(prompt) {
   if (t.startsWith('!')) return { ampliar: false };
   if (t.startsWith('++')) return { ampliar: true, texto: t.slice(2).trim(), forzado: true };
   if (RESPUESTAS.test(t)) return { ampliar: false };
+  if (/^ya\b/i.test(t)) return { ampliar: false }; // "ya lo he creado", "ya está"
   if (t.includes('\n')) return { ampliar: false }; // ya viene desarrollado
   if (t.startsWith('¿') || t.endsWith('?')) return { ampliar: false }; // pregunta, no encargo
   const n = t.split(/\s+/).length;
